@@ -1,0 +1,19 @@
+R0_test0   30 mm raw data
+R1_test0   35 mm raw data
+R2_test0   37 mm raw data
+R3_test0   40 mm raw data
+R4_test0   42 mm raw data
+R5_test0   45 mm raw data
+R0_test1   50 mm raw data
+R1_test1   55 mm raw data
+
+
+Test030   fft data from R0_test0
+Test035   fft data from R1_test0
+Test037   fft data from R2_test0
+Test040   fft data from R3_test0
+Test042   fft data from R4_test0
+Test045   fft data from R5_test0
+Test050   fft data from R0_test1
+Test055   fft data from R1_test1
+

@@ -1,0 +1,87 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load data from a single CSV file
+csv_file = "R1_AC4.csv"  # Replace with your actual file path
+label = '2 mm'  # Update to the relevant label for your single trial
+
+# Initialize an empty DataFrame for combined data
+combined_data = pd.DataFrame()
+
+# Extract the 'x', 'y', 'z' columns and convert stringified lists into lists of floats
+def extract_axis_data(df, axis):
+    return df[axis].apply(eval).explode().astype(float).values
+
+# Process data for the single file
+df = pd.read_csv(csv_file)
+angles = df['Angle']
+df_mean = []
+
+for idx, angle in enumerate(angles):
+    # Filter the data for the current angle
+    df_angle = df[df['Angle'] == angle]
+    
+    # Extract data for x, y, z axes
+    Bxs = extract_axis_data(df_angle, 'x') * 1e6
+    Bys = extract_axis_data(df_angle, 'y') * 1e6
+    Bzs = extract_axis_data(df_angle, 'z') * 1e6
+
+    Bxs_mean = np.mean(Bxs)
+    Bys_mean = np.mean(Bys)
+    Bzs_mean = np.mean(Bzs)
+
+    # Save the mean values in a list as a dictionary for this angle
+    df_mean.append({
+        'Angle': angle,
+        'Bxs_mean': Bxs_mean,
+        'Bys_mean': Bys_mean,
+        'Bzs_mean': Bzs_mean,
+        'Trial': 0  # Only one trial, so it's always 0
+    })
+
+df_mean = pd.DataFrame(df_mean)
+combined_data = pd.concat([combined_data, df_mean], axis=0)
+
+# Calculate baseline using the value at index 0 (or appropriate index)
+combined_data['Bx_baseline'] = combined_data['Bxs_mean'].iloc[35]
+combined_data['By_baseline'] = combined_data['Bys_mean'].iloc[35]
+combined_data['Bz_baseline'] = combined_data['Bzs_mean'].iloc[35]
+
+# Calculate deviations from baseline
+combined_data['Bx_deviation'] = (combined_data['Bxs_mean'] - combined_data['Bx_baseline']) 
+combined_data['By_deviation'] = (combined_data['Bys_mean'] - combined_data['By_baseline']) 
+combined_data['Bz_deviation'] = (combined_data['Bzs_mean'] - combined_data['Bz_baseline']) 
+
+# Create subplots for Bx, By, and Bz
+fig, axs = plt.subplots(3, 1, figsize=(14, 15), sharex=True)
+
+# Define common y-limits
+y_min = combined_data[['Bx_deviation', 'By_deviation', 'Bz_deviation']].min().min()
+y_max = combined_data[['Bx_deviation', 'By_deviation', 'Bz_deviation']].max().max()
+common_ylim = (y_min, y_max)
+
+# Plot Bx
+axs[0].plot(combined_data['Angle'], combined_data['Bx_deviation'], 'o-', label=label)
+axs[0].set_ylabel('Bx (uT)')
+axs[0].set_title('Bx vs. Angle')
+axs[0].set_ylim(common_ylim) 
+axs[0].legend(title='Trial', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+# Plot By
+axs[1].plot(combined_data['Angle'], combined_data['By_deviation'], 'o-', label=label)
+axs[1].set_ylabel('By (uT)')
+axs[1].set_title('By vs. Angle')
+axs[1].set_ylim(common_ylim) 
+axs[1].legend(title='Trial', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+# Plot Bz
+axs[2].plot(combined_data['Angle'], combined_data['Bz_deviation'], 'o-', label=label)
+axs[2].set_xlabel('Angle (degrees)')
+axs[2].set_ylabel('Bz (uT)')
+axs[2].set_title('Bz vs. Angle')
+axs[2].set_ylim(common_ylim) 
+axs[2].legend(title='Trial', bbox_to_anchor=(1.05, 1), loc='upper left')
+
+plt.tight_layout()
+plt.show()

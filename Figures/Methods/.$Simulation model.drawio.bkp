@@ -1,0 +1,51 @@
+<mxfile host="Electron" modified="2024-05-09T08:05:48.108Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="FtgHu_cfkDp0fYqiEXEv" version="24.2.5" type="device">
+  <diagram name="Seite-1" id="gxnhrHOjTTDalgqDFQD0">
+    <mxGraphModel dx="830" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uNq-Qac54TeOE4SCXc_U-1" target="uNq-Qac54TeOE4SCXc_U-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="285" />
+              <mxPoint x="270" y="285" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uNq-Qac54TeOE4SCXc_U-1" target="uNq-Qac54TeOE4SCXc_U-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="285" />
+              <mxPoint x="260" y="220" />
+              <mxPoint x="515" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-1" value="Simulation (COMSOL)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="140" y="240" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uNq-Qac54TeOE4SCXc_U-2" target="uNq-Qac54TeOE4SCXc_U-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-2" value="Sensor Dummy (Discretization)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="300" y="240" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="uNq-Qac54TeOE4SCXc_U-3" target="uNq-Qac54TeOE4SCXc_U-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-3" value="Angle Estimation Algorithm" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="470" y="240" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-4" value="$$Angle\; \alpha$$" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-11" value="$$B_x, B_y, B_z$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="234" y="286" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uNq-Qac54TeOE4SCXc_U-12" value="$$B_x^q, B_y^q, B_z^q$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="286" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

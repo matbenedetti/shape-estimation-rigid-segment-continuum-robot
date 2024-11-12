@@ -1,0 +1,28 @@
+raw files
+R{cycle}_LUT0 with cycle 0 1 2  ---> 3mm
+R{cycle}_LUT1 with cycle 0 1 2 ---> 3.5mm
+R{cycle}_LUT2 with cycle 0 1 2 ---> 4mm
+R{cycle}_LUT3 with cycle 0 1 2 ---> 4.5mm
+R{cycle}_LUT4 with cycle 0 1 2 ---> 5mm
+R{cycle}_LUT5 with cycle 0 1 2 ---> 5.5mm   the first 3 files for look up tables the last one for testing
+
+
+R 0-11 coarser
+
+30_coarser  11
+32_coarser  10
+35_coarser  9
+37_coarser  8
+40_coarser  7
+42_coarser  6
+45_coarser  5
+47_coarser  4
+50_coarser  3
+52_coarser  2
+55_coarser  1
+57_coarser  0
+
+
+test 30
+test...
+

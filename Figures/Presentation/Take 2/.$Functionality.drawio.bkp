@@ -1,0 +1,42 @@
+<mxfile host="Electron" modified="2024-05-26T18:38:25.969Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.6 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="zEkmt1sILwdcQMqGGg7E" version="24.4.6" type="device">
+  <diagram name="Seite-1" id="q3yEebcb23m3gK3sJ7Ge">
+    <mxGraphModel dx="955" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZeetJDig1duTQM4KWfbx-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZeetJDig1duTQM4KWfbx-1" target="ZeetJDig1duTQM4KWfbx-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-1" value="Look-Up&lt;div style=&quot;font-size: 20px;&quot;&gt;Table&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="280" y="300" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZeetJDig1duTQM4KWfbx-2" target="ZeetJDig1duTQM4KWfbx-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-2" value="Hall Sensor" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="280" y="460" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZeetJDig1duTQM4KWfbx-3" target="ZeetJDig1duTQM4KWfbx-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="440" />
+              <mxPoint x="740" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-3" value="Angle Estimation Algorithm" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="560" y="380" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-12" value="$$\alpha^*$$" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="750" y="380" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-14" value="$$B_x^*, B_y^*, B_z^*$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="450" y="320" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeetJDig1duTQM4KWfbx-15" value="$$B_x, B_y, B_z$$" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="450" y="530" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
