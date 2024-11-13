@@ -16,6 +16,8 @@ name_file = ['Testcoarse_30.csv']#, 'Test135.csv',  'Test140.csv', 'Test145.csv'
 folder_path = "C:/Users/Benedetti/OneDrive - Scuola Superiore Sant'Anna/shape-estimation-rigid-segment-continuum-robot (2)/LUT/"
 label = ['30 mm', '35 mm', '40 mm', '45 mm', '50 mm', '55 mm']
 files_database = ['LUT3_30.csv', 'LUT3_35.csv', 'LUT3_40.csv', 'LUT3_45.csv']
+params = np.array([2.94648923, 2.21593223, 1.40937635, 0.76568571, 0.39475797])
+
 gt_distance = 3.0
 
 # Initialize lists to store matrices
@@ -222,8 +224,11 @@ for file_idx, file in enumerate(name_file):
         differencetan = find_closest_angle_distance(tan, Z2_tan, coarser_angles, coarser_distances, tan_mean, tan_std)
 
         #difference = differencex  + differencephase + differencey +   differencez + differencetan
-        difference = 2.94648923 * differencex  + 2.21593223*differencephase +  1.40937635 * differencey +  0.76568571 * differencez + 0.39475797 *differencetan
-         
+        # Variables for the differences
+        differences = np.array([differencex, differencephase, differencey, differencez, differencetan])
+
+        # Calculate 'difference' using dot product
+        difference = np.dot(params, differences)
 
 
         # Find the index of the minimum difference
