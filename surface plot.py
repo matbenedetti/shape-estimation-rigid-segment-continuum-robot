@@ -12,11 +12,12 @@ from scipy.stats import mode
 
 
 file_path = "C:/Users/Benedetti/OneDrive - Scuola Superiore Sant'Anna/shape-estimation-rigid-segment-continuum-robot (2)/data_06112024/"
-name_file = ['Testcoarse_30.csv']#, 'Test135.csv',  'Test140.csv', 'Test145.csv', 'Test150.csv', 'Test155.csv']
+name_file = ['Testcoars_40.csv']#, 'Test135.csv',  'Test140.csv', 'Test145.csv', 'Test150.csv', 'Test155.csv']
 folder_path = "C:/Users/Benedetti/OneDrive - Scuola Superiore Sant'Anna/shape-estimation-rigid-segment-continuum-robot (2)/LUT/"
 label = ['30 mm', '35 mm', '40 mm', '45 mm', '50 mm', '55 mm']
 files_database = ['LUT3_30.csv', 'LUT3_35.csv', 'LUT3_40.csv', 'LUT3_45.csv']
-params = np.array([2.94648923, 2.21593223, 1.40937635, 0.76568571, 0.39475797])
+params = np.array([1,  1, 1, 1,1])
+#params = np.array([0.7797615,  0.36777395, 1.44310458, 1.53286072, 0.69944434])
 
 gt_distance = 3.0
 
@@ -82,7 +83,7 @@ angles = np.array(angles)
 distances = np.array([3.0, 3.5, 4.0, 4.5])
 
 def plot_3d(matrix, angles, distances, axis_label):
-    fig = plt.figure(figsize=(15, 10))
+    fig = plt.figure(figsize=(7, 5))
     ax = fig.add_subplot(111, projection='3d')
     A, D = np.meshgrid(angles, distances)
     surf = ax.plot_surface(A, D, matrix, cmap='viridis')
@@ -218,17 +219,18 @@ for file_idx, file in enumerate(name_file):
 
     for angle, by, bz, bx, ph, tan in zip(degs, by_lst, bz_lst, bx_lst, phasediff, tan_lst):
         differencex = find_closest_angle_distance(bx, Z2_x, coarser_angles, coarser_distances, x_mean, x_std)
-        differencey = find_closest_angle_distance(bz, Z2_z, coarser_angles, coarser_distances, z_mean, z_std)
-        differencez = find_closest_angle_distance(by, Z2_y, coarser_angles, coarser_distances, y_mean, y_std)
+        differencez = find_closest_angle_distance(bz, Z2_z, coarser_angles, coarser_distances, z_mean, z_std)
+        differencey = find_closest_angle_distance(by, Z2_y, coarser_angles, coarser_distances, y_mean, y_std)
         differencephase = find_closest_angle_distance(ph, Z2_phase, coarser_angles, coarser_distances, phase_mean, phase_std)
         differencetan = find_closest_angle_distance(tan, Z2_tan, coarser_angles, coarser_distances, tan_mean, tan_std)
 
         #difference = differencex  + differencephase + differencey +   differencez + differencetan
         # Variables for the differences
-        differences = np.array([differencex, differencephase, differencey, differencez, differencetan])
+        differences = np.array([differencex, differencephase, differencez, differencey, differencetan])
 
         # Calculate 'difference' using dot product
-        difference = np.dot(params, differences)
+        # Element-wise multiplication and summation over the first axis
+        difference = np.tensordot(params, differences, axes=(0, 0))
 
 
         # Find the index of the minimum difference
@@ -238,12 +240,12 @@ for file_idx, file in enumerate(name_file):
         best_angle = coarser_angles[min_index[1]]
         # Find the option with the minimum difference
 
-        '''plot_3d(difference, coarser_angles, coarser_distances, f'for angle {angle}')
+        #plot_3d(differencetan, coarser_angles, coarser_distances, f'Tan')
         #plot a vertical line at best angle and best distance
-        plt.plot([best_angle, best_angle], [best_distance, best_distance], [0, 200], color='red', linewidth=2, label="Best Angle & Distance")
+        '''plt.plot([best_angle, best_angle], [best_distance, best_distance], [0, 200], color='red', linewidth=2, label="Best Angle & Distance")
         plt.plot([angle, angle], [gt_distance, gt_distance], [0, 200], color='black', linewidth=2, label="actual Angle & Distance")
-
-        plt.show()'''
+        '''
+        plt.show()
 
         
 
